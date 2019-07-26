@@ -14,8 +14,10 @@ gem 'sqlite3'
 # group :production do
 #   gem 'pg', '1.1.4'
 # end
-
-
+# use bootstrap for views
+gem 'bootstrap', '~> 4.3.1'
+# for bootstrap
+gem 'jquery-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
