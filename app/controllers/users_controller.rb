@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         @user.delete 
         redirect_to root_path 
     end
-    def creates
+    def create
         @user = User.new(user_params)
         if @user.valid?
             @user.save 

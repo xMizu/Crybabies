@@ -1,0 +1,4 @@
+
+<% @games.each do |g| %>
+<%= button_to "Join Game ##{g.id}", g, method: :patch %>
+<% end %>
