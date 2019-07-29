@@ -31,6 +31,6 @@ class Round < ApplicationRecord
             true
         else
             false
-        end
+        end 
     end
 end
