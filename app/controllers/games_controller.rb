@@ -8,11 +8,12 @@ class GamesController < ApplicationController
     end
     def create
         #TODO figure out how to make a game session for the current user. 
-        @game.new(game_params)
+        @game = Game.new(game_params)
         if @game.valid?
             @game.save
         else 
-            #TODO Handle invalid game 
+            flash.now[:message] = @game.errors.full_messages[0]
+            render :new 
         end
     end
     private 
