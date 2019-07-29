@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(params[:username])
+    @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id 
         redirect_to @user
     else
-        flash[:message]
-        render :new 
+        flash[:message] = "Password does not match Email entered"
+        render login_path 
     end
   end
 

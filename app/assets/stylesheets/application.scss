@@ -1,4 +1,18 @@
 /*
 *= require rails_bootstrap_forms
 */
+
+body {
+    background: url("cup.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    opacity: 0.50;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+  .jumbotron {
+    background-color: transparent !important;
+    background-size: cover;
+  }
 @import "bootstrap";

@@ -11,10 +11,11 @@ class UsersController < ApplicationController
         redirect_to root_path 
     end
     def create
+        byebug
         @user = User.new(user_params)
         if @user.valid?
             @user.save 
-            redirect_to root_path
+            redirect_to login_path
         else 
             #TODO need to handle invalid user
         end
@@ -23,6 +24,6 @@ class UsersController < ApplicationController
 
     private 
     def user_params
-        params.require(:user).permit(:name,:email)
+        params.require(:user).permit(:name,:email,:password)
     end
 end
