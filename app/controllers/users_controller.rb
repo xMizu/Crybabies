@@ -4,14 +4,14 @@ class UsersController < ApplicationController
     end
     def show
         @user = User.find(params[:id])
+        @game = Game.new 
     end
     def delete
         @user = User.find(params[:id])
         @user.delete 
         redirect_to root_path 
     end
-    def create
-        byebug
+    def creates
         @user = User.new(user_params)
         if @user.valid?
             @user.save 
