@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   #session routes
   get "/login", to: "sessions#new", as: "login"
   post "/sessions", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  post "/logout", to: "sessions#destroy", as: 'logout'
   
   #user routes
   resources :users, only: [:delete,:show,:create,:new]
   get '/signup/', to: 'users#new', as: 'signup'
   post '/login/', to: 'sessions#create' 
-  
-  resources :games, only: [:show,:create,:new]
+  resources :games, only: [:show,:create,:new,:index,:update]
   
 
 
