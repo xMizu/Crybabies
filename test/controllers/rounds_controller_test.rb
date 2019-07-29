@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RoundControllerTest < ActionDispatch::IntegrationTest
+class RoundsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
