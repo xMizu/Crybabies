@@ -3,4 +3,3 @@ class AddEmailColumnToUser < ActiveRecord::Migration[5.2]
     add_column :users, :email, :NVARCHAR
   end
 end
-r

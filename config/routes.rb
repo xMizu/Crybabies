@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :game_sessions , only: [:create, :update,:show]
   resources :rounds, only: [:create,:update]
   
+  
 
 
 end

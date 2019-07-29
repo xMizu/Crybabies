@@ -1,4 +1,6 @@
 
 <% @games.each do |g| %>
-<%= button_to "Join Game ##{g.id}", g, method: :patch %>
+<div>
+    <%= button_to "Join Game ##{g.id}", g, method: :patch, class: "btn btn-light btn-lg btn-block" %>
+</div>
 <% end %>
