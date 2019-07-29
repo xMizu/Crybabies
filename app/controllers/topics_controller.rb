@@ -6,4 +6,9 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @complaints = @topic.complaints
   end
+
+  def create
+  
+  end
+  
 end
