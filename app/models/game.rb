@@ -13,4 +13,10 @@ class Game < ApplicationRecord
             false
         end
     end
+    def rounds_complete
+        self.rounds.select {|r| r.finished?}.length
+    end
+    def finished?
+        rounds_complete == max_rounds
+    end
 end
