@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  resource :users, only: [:delete,:show,:create,:new]
+  resource :rounds, only: [:create,:update]
+  resource :games, only: [:show,:create,:new]
+  
+
+
 end
