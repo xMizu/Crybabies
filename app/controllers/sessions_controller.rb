@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id 
         redirect_to @user
     else
-        flash[:message] = "Password does not match Email entered"
-        render login_path 
+        flash.now[:message] = "Password does not match Email entered, please try again or signup"
+        render :new 
     end
   end
 

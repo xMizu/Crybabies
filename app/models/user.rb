@@ -13,11 +13,7 @@ class User < ApplicationRecord
             if self.games.last.finished? 
                 false
             else
-                if self.games.last.rounds.empty?
-                    true
-                else
-                    false
-                end
+                true
             end
         end
     end

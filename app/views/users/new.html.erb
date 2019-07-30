@@ -13,11 +13,13 @@
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control'  %>
         </div>
-        <div class="form-group">
-        <%= submit_tag "Signup", class: 'btn btn-outline-info btn-lg btn-submit' %>
-        </div>
-    <%end%>
-    <div class="form-group">
-        <%= button_to 'login', login_path , class: 'btn btn-outline-info btn-lg btn-submit', method: :get %>
+        <div class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+                <%= submit_tag "Signup", class: 'btn btn-outline-info btn-lg btn-submit' %>      
+            </div>    
+        <%end%>
+            <div class="form-group mx-sm-3 mb-2">    
+                <%= button_to 'login', login_path , class: 'btn btn-outline-info btn-lg btn-submit', method: :get %>
+            </div>    
     </div>
 </div>

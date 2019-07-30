@@ -1,12 +1,18 @@
 
-<div class="form-group">
+<div class="d-flex justify-content-center " >
     <% if @user.current_session? %>
+    <div class="d-flex justify-content-center">
         <%= button_to "Continue Game", @path, method: :get, class: 'btn btn-outline-primary btn-lg btn-submit' %>
+    </div>
     <% else %>
+    <div class="d-flex justify-content-center">
         <%= button_to "New Game", new_game_path, method: :get, class: 'btn btn-outline-danger btn-lg btn-submit'%>
         <%= button_to "Join Game", games_path, method: :get, class: 'btn btn-outline-danger btn-lg btn-submit'%>
+    </div>
     <% end %>
 </div>
 
-
-<%= button_to "Logout", logout_path, method: :post, class: 'btn btn-outline-danger btn-lg btn-submit '%>
+<div class="d-flex justify-content-center">
+    <%=button_to "Logout", logout_path, method: :post, class: 'btn btn-outline-danger btn-lg btn-submit '%>
+</div>
+    
