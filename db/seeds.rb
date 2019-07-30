@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Guess.destroy_all 
 Topic.create(name: "Apples")
 u1 = User.find_or_create_by(password_digest: "12345",name:"John",email:"xy@x.com")
 u2 = User.find_or_create_by(password_digest: "12345",name:"Jeb Bush",email:"xyz@x.com")
