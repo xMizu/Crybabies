@@ -8,7 +8,7 @@ class User < ApplicationRecord
     def current_session
         #TODO fix this shit
         if self.games.last != nil
-            self.games.last.finished?
+            !self.games.last.finished?
         else
             false
         end

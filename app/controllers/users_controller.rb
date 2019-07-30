@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     end
     def show
         @user = User.find(params[:id])
-        if session[:round_id]
+        if @user.current_session
             @round = @user.games.last.rounds.last
         end
     end
