@@ -7,7 +7,11 @@ class User < ApplicationRecord
 
     def current_session
         #TODO fix this shit
-        self.games.last.finished?
+        if self.games.last != nil
+            self.games.last.finished?
+        else
+            false
+        end
     end
     def score 
         current_session.score

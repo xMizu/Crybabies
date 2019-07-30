@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :topics , only: [:index,:show]
   resources :guesses , only: [:new,:create]
-  resources :complaints , only: [:new,:create]
+  resources :complaints , only: [:new,:create,:index]
   resources :game_sessions , only: [:create, :update,:show]
   resources :rounds, only: [:create,:update,:show]
   

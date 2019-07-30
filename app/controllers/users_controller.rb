@@ -4,7 +4,9 @@ class UsersController < ApplicationController
     end
     def show
         @user = User.find(params[:id])
-        @round = @user.games.last.rounds.last
+        if session[:round_id]
+            @round = @user.games.last.rounds.last
+        end
     end
     def delete
         @user = User.find(params[:id])
