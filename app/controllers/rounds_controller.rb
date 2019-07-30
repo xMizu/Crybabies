@@ -30,8 +30,7 @@ class RoundsController < ApplicationController
        @opponents = @round.game.users.select {|u| u.id != session[:user_id].to_i}
     end
     def send_guess
-        @player = User.find(session[:id])
+        @player = User.find(session[:user_id])
         @complaints = Complaint.all.select {|c| c.round_id == params[:id].to_i && c.user_id != session[:user_id].to_i}
-        byebug
     end
 end

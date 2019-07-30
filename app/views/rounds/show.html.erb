@@ -16,8 +16,8 @@
         </h1>
         <% if @round.complaint_phase? %>
             <%=button_to "refresh", @round, method: :get %>
-        <% else
-            <%=button_to "Look at Guesses", round_guess_path(@round.id), method: :get %>
+        <% else %>
+            <%= button_to "Look at Guesses", round_guesses_path(@round.id), method: :get %>
         <% end %>
     </div>
 <% end %>
