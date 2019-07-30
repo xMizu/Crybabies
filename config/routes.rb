@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :guesses , only: [:new,:create]
   resources :complaints , only: [:new,:create,:index]
   get "/rounds/:id/guess", to: "rounds#guess", as: "round_guesses"
+  get "/rounds/:id/score", to: "rounds#score", as: "round_score"
   post "/rounds/:id/guess", to: "rounds#send_guess", as: "send_guesses"
   resources :game_sessions , only: [:create, :update,:show]
   resources :rounds, only: [:create,:update,:show]

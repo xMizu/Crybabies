@@ -21,4 +21,12 @@ r1 = Round.find_or_create_by(game: g1, topic: t1)
 c1 = Complaint.find_or_create_by(round: r1,user: u1,complain_text:"Far Too Masculine")
 c2 = Complaint.find_or_create_by(round: r1,user: u2,complain_text:"Appropriation of Paul Blart Culture")
 c3 = Complaint.find_or_create_by(round: r1,user: u4,complain_text:"What if you have no legs?")
+#Simulate finished round below here
+
+# #user1 guesses
+c2.guess(u1,3)
+c3.guess(u1,2)
+# #user2 guesses
+c1.guess(u2,1)
+c3.guess(u2,3)
 
