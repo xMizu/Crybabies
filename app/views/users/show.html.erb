@@ -1,7 +1,7 @@
 
 <div class="form-group">
-    <% if @user.current_session %>
-        <%= button_to "Continue Game", round_path(@round), method: :get, class: 'btn btn-outline-primary btn-lg btn-submit' %>
+    <% if @user.current_session? %>
+        <%= button_to "Continue Game", @path, method: :get, class: 'btn btn-outline-primary btn-lg btn-submit' %>
     <% else %>
         <%= button_to "New Game", new_game_path, method: :get, class: 'btn btn-outline-danger btn-lg btn-submit'%>
         <%= button_to "Join Game", games_path, method: :get, class: 'btn btn-outline-danger btn-lg btn-submit'%>
