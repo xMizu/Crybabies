@@ -2,6 +2,7 @@
 <% if session[:guesses_submitted] %>
 <h3>You have submitted your guesses for this round. Currently waiting on other players.</h3>
 <h3>Please wait for other players to guess and click the button below.</h3>
+<p><%= button_to "Refresh",round_score_path(@round.id),method: :get%></p>
 <% else %>
 
 <h3><%= "Complaints for: #{@round.topic.name}" %></h3>
