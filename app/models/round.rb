@@ -18,7 +18,15 @@ class Round < ApplicationRecord
             false
         end
     end
+    def users 
+        self.game.users
+    end
 
+    def list_score_for_round(user)
+        #TODO inefficient
+        Round.guesses.select {|g| g.user == user && g.correct_guess?}.length
+    end
+        
     def guess_phase?  
         if self.guesses.length < self.number_of_expected_guesses
             true 
