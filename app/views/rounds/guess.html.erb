@@ -1,0 +1,15 @@
+<h2>Identify the Complainers!</h2>
+<% if session[:guesses_submitted] %>
+<h3>You have submitted your guesses for this round. Currently waiting on other players.</h3>
+<h3>Please wait for other players to guess and click the button below.</h3>
+<% else %>
+
+<h3><%= "Complaints for: #{@round.topic.name}" %></h3>
+<%= form_tag send_guesses_path(params[:id]) do %>
+<% @complaints.each_with_index do |c,i| %>
+<p><%= c.complain_text %><%= collection_select "guess#{i}",:user_id,@opponents,:id,:name %></p>
+<% end %>
+<%= submit_tag "Good Luck!" %>
+<% end %>
+
+<% end %>

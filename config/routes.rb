@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :topics , only: [:index,:show]
   resources :guesses , only: [:new,:create]
   resources :complaints , only: [:new,:create,:index]
+  get "/rounds/:id/guess", to: "rounds#guess", as: "round_guesses"
+  post "/rounds/:id/guess", to: "rounds#send_guess", as: "send_guesses"
   resources :game_sessions , only: [:create, :update,:show]
   resources :rounds, only: [:create,:update,:show]
   
