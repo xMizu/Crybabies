@@ -7,3 +7,7 @@ one:
 two:
   name: Bill Clinton
   password_digest: MyString
+  
+three:
+  name: Jebidiah Bush
+  password_digest: MyString

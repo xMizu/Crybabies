@@ -22,9 +22,10 @@ class Round < ApplicationRecord
         self.game.users
     end
 
-    def list_score_for_round(user)
+    def score_for_round(user)
         #TODO inefficient
-        Round.guesses.select {|g| g.user == user && g.correct_guess?}.length
+        self.guesses.select {|g| g.user == user && g.correct_guess? && g.round == self}.length 
+    
     end
         
     def guess_phase?  
