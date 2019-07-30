@@ -5,14 +5,32 @@ class User < ApplicationRecord
     has_many :complaints
     has_secure_password
 
-    def current_session
+    def current_session?
         #TODO fix this shit
-        if self.games.last != nil
-            !self.games.last.finished?
-        else
+        if self.games.empty? 
             false
+        else 
+            if self.games.last.finished? 
+                false
+            else
+                if self.games.last.rounds.empty?
+                    true
+                else
+                    false
+                end
+            end
         end
     end
+
+    def current_round?
+        if self.current_session? == true && self.games.last.rounds.empty? 
+            self.games.last
+        else
+            self.games.last.rounds.last
+        end
+    end
+                
+
     def score 
         current_session.score
     end

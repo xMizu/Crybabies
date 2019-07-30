@@ -4,10 +4,11 @@ class UsersController < ApplicationController
     end
     def show
         @user = User.find(params[:id])
-        if @user.current_session
-            @round = @user.games.last.rounds.last
+        if @user.current_session?
+            @path = @user.current_round?
         end
     end
+
     def delete
         @user = User.find(params[:id])
         @user.delete 
