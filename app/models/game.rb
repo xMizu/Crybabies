@@ -13,6 +13,9 @@ class Game < ApplicationRecord
             false
         end
     end
+    def current_round
+        self.rounds.last
+    end
     def rounds_complete
         self.rounds.select {|r| r.finished?}.length
     end
