@@ -7,10 +7,11 @@ class User < ApplicationRecord
 
     def current_session
         #TODO fix this shit
-        self.game_sessions.last
+        self.games.last.finished?
     end
     def score 
         current_session.score
     end
+
     
 end

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     end
     def show
         @user = User.find(params[:id])
-        @game = Game.new 
+        @round = @user.games.last.rounds.last
     end
     def delete
         @user = User.find(params[:id])
@@ -20,6 +20,8 @@ class UsersController < ApplicationController
             #TODO need to handle invalid user
         end
     end
+
+    
 
 
     private 
