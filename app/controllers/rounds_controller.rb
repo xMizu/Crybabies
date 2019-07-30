@@ -32,8 +32,13 @@ class RoundsController < ApplicationController
     
     end
     def score
-        params[:guesses_submitted] = nil 
         @round = Round.find(params[:id])
+
+        if !@round.finished?
+            redirect_to round_guesses_path(@round.id)
+        else
+            params[:guesses_submitted] = nil 
+        end
     end
     def send_guess
         player = User.find(session[:user_id])
