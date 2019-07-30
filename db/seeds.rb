@@ -6,9 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-<<<<<<< HEAD
 Topic.create(name: "Apples")
-=======
 u1 = User.find_or_create_by(password_digest: "12345",name:"John",email:"xy@x.com")
 u2 = User.find_or_create_by(password_digest: "12345",name:"Jeb Bush",email:"xyz@x.com")
 u3 = User.find_or_create_by(password_digest: "12345",name:"Scoop",email:"xyzf@x.com")
@@ -23,4 +21,3 @@ c1 = Complaint.find_or_create_by(round: r1,user: u1,complain_text:"Far Too Mascu
 c2 = Complaint.find_or_create_by(round: r1,user: u2,complain_text:"Appropriation of Paul Blart Culture")
 c3 = Complaint.find_or_create_by(round: r1,user: u4,complain_text:"What if you have no legs?")
 
->>>>>>> guess-views
