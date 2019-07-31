@@ -8,7 +8,7 @@
 <% if @complaint.id == nil %>
     <div class="form-group">
         <%=form_for @complaint do |f| %>
-        <%=f.label :Complain_text, "Complaint", class: "d-flex justify-content-center h1" %>
+        <%=f.label :complain_text, "Complaint", class: "d-flex justify-content-center h1" %>
         <%=f.text_field :complain_text, class: 'form-control' %>
         <%=f.submit :submit, class: "btn btn-dark" %>
         <% end %>

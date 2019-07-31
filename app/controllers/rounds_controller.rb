@@ -1,8 +1,8 @@
 
 class RoundsController < ApplicationController
     def create
-            @game = Game.find(params[:id])
-        if @game.rounds.count == 0 
+            @game = Game.find(params[:game_id])
+        if @game.rounds.count == 0 || @game.rounds.last.finished?
             @topic = Topic.find_or_create_by(name: Topic.select_topic)
             @round = Round.create(topic_id: @topic.id,game_id: @game.id)
         else
@@ -12,7 +12,6 @@ class RoundsController < ApplicationController
     end
 
     def index
-    
     end 
 
     def show
@@ -24,6 +23,7 @@ class RoundsController < ApplicationController
             @complaint = Complaint.new
         end
     end
+
     def guess 
        @round = Round.find(params[:id]) 
        
@@ -32,15 +32,20 @@ class RoundsController < ApplicationController
        @opponents = @round.game.users.select {|u| u.id != session[:user_id].to_i}
     
     end
+
     def score
+
         @round = Round.find(params[:id])
-        
+        @user = User.find(session[:user_id])
+        @game = @user.games.last
+        @current_round = @game.rounds.count
         if !@round.finished?
             redirect_to round_guesses_path(@round.id)
         else
            
             params[:guesses_submitted] = nil 
         end
+
     end
     def send_guess
         player = User.find(session[:user_id])
