@@ -22,11 +22,15 @@ class Round < ApplicationRecord
         self.game.users
     end
 
+    def finished_rounds
+        (game.rounds.select {|r| r.finished?}).count
+    end
+
     def score_for_round(user)
         #TODO inefficient
         self.guesses.select {|g| g.user == user && g.correct_guess? && g.round == self}.length 
-    
     end
+
         
     def guess_phase?  
         if self.guesses.length < self.number_of_expected_guesses

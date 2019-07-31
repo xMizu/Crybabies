@@ -42,11 +42,10 @@ class RoundsController < ApplicationController
     end
 
     def score
-
         @round = Round.find(params[:id])
         @user = User.find(session[:user_id])
         @game = @user.games.last
-        @current_round = @game.rounds.count
+        byebug
         if !@round.finished?
             redirect_to round_guesses_path(@round.id)
         else
@@ -55,17 +54,18 @@ class RoundsController < ApplicationController
         end
 
     end
+
     def send_guess
         player = User.find(session[:user_id])
         round = Round.find(params[:id])
         complaints = Complaint.all.select {|c| c.round_id == params[:id].to_i && c.user_id != session[:user_id].to_i}
         complaints.each_with_index do |c,i|
-            c.guess(player,params["guess#{i}"][:user_id])
+           g = c.guess(player,params["guess#{i}"][:user_id])
+           g.apply_score
         end
         if round.finished?
             redirect_to round_score_path(round.id)
         else 
-            
             redirect_to round_guesses_path(round.id)
         end
     end
