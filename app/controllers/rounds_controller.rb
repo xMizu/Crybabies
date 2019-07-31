@@ -25,11 +25,13 @@ class RoundsController < ApplicationController
         end
     end
     def guess 
-       @round = Round.find(params[:id]) 
-       
+       @round = Round.find(params[:id])
+       @user = User.find(session[:user_id]) 
+       game = @round.game 
        #TODO fix this horseshit
-       @complaints = Complaint.all.select {|c| c.round_id == params[:id].to_i && c.user_id != session[:user_id].to_i} 
-       @opponents = @round.game.users.select {|u| u.id != session[:user_id].to_i}
+
+       @complaints =  @round.complaints.where.not(user_id: session[:user_id])
+       @opponents = game.users.where.not(id: session[:user_id])
     
     end
     def score
@@ -39,7 +41,7 @@ class RoundsController < ApplicationController
             redirect_to round_guesses_path(@round.id)
         else
            
-            params[:guesses_submitted] = nil 
+            # params[:guesses_submitted] = nil 
         end
     end
     def send_guess
@@ -52,7 +54,7 @@ class RoundsController < ApplicationController
         if round.finished?
             redirect_to round_score_path(round.id)
         else 
-            session[:guesses_submitted] = true 
+            
             redirect_to round_guesses_path(round.id)
         end
     end
