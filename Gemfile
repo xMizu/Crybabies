@@ -19,7 +19,7 @@ gem 'bootstrap', '~> 4.3.1'
 # for bootstrap
 gem 'jquery-rails'
 gem "bootstrap_form", ">= 4.2.0"
-
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
