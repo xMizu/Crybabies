@@ -10,9 +10,10 @@ class Guess < ApplicationRecord
             false
         end
     end
+
     def apply_score
         if correct_guess? 
-            self.user.current_session.score_point
+            self.user.game_sessions.last.score_point
         end
     end
 end

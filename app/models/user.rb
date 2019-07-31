@@ -31,7 +31,7 @@ class User < ApplicationRecord
 
     def guesses_submitted?
         round = self.current_game.rounds.last 
-        guesses = round.guesses.where(user:self)
+        guesses = round.guesses.where(user: self)
         guesses.length == ((current_game.user_count) - 1)
     end
 
@@ -48,8 +48,8 @@ class User < ApplicationRecord
     end
                 
 
-    def score 
-        current_session.score
+    def total_score 
+        self.game_sessions.last.score
     end
 
     private
