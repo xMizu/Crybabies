@@ -1,14 +1,16 @@
-<h2>New Game</h2>
+<h2 class="section-title">New Game</h2>
 <% if flash.now[:message] %>
 <div class="alert alert-danger">
     <p><%= flash.now[:message] %></p>
 </div>
 <% end %>
-<div class="form-group"><%= form_for @game do |f| %>
-    <%= f.label :user_count, "Player Count" %>
-    <p><%= f.number_field :user_count %></p>
-    <%= f.label :max_rounds, "Number of Rounds" %>
-    <p><%= f.number_field :max_rounds %></p>
-    <p><%= f.submit :submit.to_s.capitalize, class: "btn btn-outline-info btn-lg btn-submit" %></p>
-    <% end %>
+<div class="form-box">
+    <div class="form-group"><%= form_for @game do |f| %>
+        <%= f.label :user_count, "Player Count" %>
+        <p><%= f.number_field :user_count %></p>
+        <%= f.label :max_rounds, "Number of Rounds" %>
+        <p><%= f.number_field :max_rounds %></p>
+        <p><%= f.submit :submit.to_s.capitalize, class: "btn btn-info btn-lg btn-submit" %></p>
+        <% end %>
+    </div>
 </div>

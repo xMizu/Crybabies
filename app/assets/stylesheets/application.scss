@@ -36,9 +36,28 @@ body {
   height:auto;
   width: 56px;
   margin-right: 20px;
+  filter: invert(1);
 }
 .section-title{
   text-align: center;
+}
+.login-title{
+  background: rgba(75, 74, 74, 0.876);
+  width: fit-content;
+  margin: auto;
+  padding: 1.4rem;
+  color: white;
+  border-radius:7%;
+  filter: drop-shadow(2px 4px 6px black);
+}
+.splash-logo{
+  height:auto;
+  width: 76px;
+  margin-left: 10px;
+  filter: invert(1);
+}
+#user-screen{
+  margin-top: 3em;
 }
 
 @import "bootstrap";
