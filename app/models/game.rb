@@ -22,4 +22,5 @@ class Game < ApplicationRecord
     def finished?
         rounds_complete == max_rounds
     end
+
 end

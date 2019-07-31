@@ -1,8 +1,9 @@
+
 class RoundsController < ApplicationController
     def create
             @game = Game.find(params[:id])
         if @game.rounds.count == 0 
-            @topic = Topic.find(Topic.pluck(:id).sample)
+            @topic = Topic.find_or_create_by(name: Topic.select_topic)
             @round = Round.create(topic_id: @topic.id,game_id: @game.id)
         else
             @round = Round.find(@game.rounds.last.id)
