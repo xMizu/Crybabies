@@ -1,36 +1,43 @@
-<h2>Scoring Time</h2>
-
-<%  @round.game.users.each do |u|%>
-<p><%= "#{u.name}: #{@round.score_for_round(u)}" %></p>
-<% end %>
+<div class="d-flex justify-content-center ">
+    <div class="d-flex flex-column">
+        <h2>Scoring Time</h2>
+        <%  @round.game.users.each do |u|%>
+            <h2 class="text-center"><%= "#{u.name.capitalize}: #{@round.score_for_round(u)}" %></h2>
+    
+        <% end %>
+    </div>
+</div>
 
 
 
 <% if @game.finished? %>
-<h1>IMPLEMENT FINISH GAME BUTTON</h1>
+<div class="d-flex justify-content-center ">
+    <%= button_to "Home", user_path(session[:user_id]),method: :get, class: "btn btn-primary btn-lg", style: "width: 8em; margin-bottom: 1em;" %>
+</div>
 <% else %>
-<%=button_to "Start round #{@round.finished_rounds + 1 }", rounds_path, method: :post, round_id: @round.id, params: {game_id: @game.id}, class: "btn btn-primary" %>
+<%=button_to "Start round #{@round.finished_rounds + 1 }", rounds_path, method: :post, round_id: @round.id, params: {game_id: @game.id}, class: "btn btn-primary btn-lg", style: "width: 8em; margin-bottom: 1em;" %>
 <% end %>
-
-<table class="table table-dark">
-    <thead>
-        <tr>
-        <th scope="col">Player</th>
-        <% @game.rounds.each_with_index do |r , i| %>
-            <th scope="col"><%= "Round #{i + 1}" %></th>
-        <% end %>
-        <th scope="col">Total Score</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @round.users.each do |u| %>
-        <tr>
-            <th scope="row"> <%= u.name %> </th>
-                <% @game.rounds.each do |r| %>
-                    <td><%=r.score_for_round(u) %></td>
-                <% end %>
-                <td> <%= u.total_score %> </td>
-        </tr>
-        <% end %>    
-    </tbody>
-</table>
+<div>    
+    <table class="table table-dark">
+        <thead>
+            <tr>
+            <th scope="col">Player</th>
+            <% @game.rounds.each_with_index do |r , i| %>
+                <th scope="col"><%= "Round #{i + 1}" %></th>
+            <% end %>
+            <th scope="col">Total Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @round.users.each do |u| %>
+            <tr>
+                <th scope="row"> <%= u.name.capitalize %> </th>
+                    <% @game.rounds.each do |r| %>
+                        <td><%=r.score_for_round(u) %></td>
+                    <% end %>
+                    <td> <%= u.total_score %> </td>
+            </tr>
+            <% end %>    
+        </tbody>
+    </table>
+</div>

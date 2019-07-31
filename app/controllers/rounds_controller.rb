@@ -45,7 +45,6 @@ class RoundsController < ApplicationController
         @round = Round.find(params[:id])
         @user = User.find(session[:user_id])
         @game = @user.games.last
-        byebug
         if !@round.finished?
             redirect_to round_guesses_path(@round.id)
         else
