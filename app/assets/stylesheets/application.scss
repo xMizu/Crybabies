@@ -23,7 +23,12 @@ body {
   width: 50%;
   background: rgba(168, 161, 161, 0.685);
   border-radius: 7%;
+  filter: drop-shadow(2px 4px 6px black);
 }
+
+
+  
+
 .navbar-brand{
   font-size: 1.5rem;
 }
@@ -35,4 +40,5 @@ body {
 .section-title{
   text-align: center;
 }
+
 @import "bootstrap";

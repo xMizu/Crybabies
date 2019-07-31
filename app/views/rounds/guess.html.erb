@@ -6,13 +6,16 @@
 <% else %>
 
 <div class="form-box">
-    <h3><%= "Complaints for: #{@round.topic.name}" %></h3>
-    <%= form_tag send_guesses_path(params[:id]) do %>
-    <% @complaints.each_with_index do |c,i| %>
-    <p><%= c.complain_text %><%= collection_select "guess#{i}",:user_id,@opponents,:id,:name %></p>
-    <% end %>
-    <%= submit_tag "Good Luck!" %>
-    <% end %>
+
+    <div class="blur-guard">
+        <h3><%= "Complaints for: #{@round.topic.name}" %></h3>
+        <%= form_tag send_guesses_path(params[:id]) do %>
+        <% @complaints.each_with_index do |c,i| %>
+        <p><%= c.complain_text %><%= collection_select "guess#{i}",:user_id,@opponents,:id,:name %></p>
+        <% end %>
+        <%= submit_tag "Good Luck!" %>
+        <% end %>
+    </div>
 </div>
 
 <% end %>
