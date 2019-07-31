@@ -17,6 +17,19 @@ class User < ApplicationRecord
             end
         end
     end
+    def current_game
+        if self.current_session? 
+            self.games.last
+        else
+            false
+        end
+    end
+
+    def guesses_submitted?
+        round = self.current_game.rounds.last 
+        guesses = round.guesses.where(user:self)
+        guesses.length == ((current_game.user_count) - 1)
+    end
 
     def current_round?
         if self.current_session? == true && self.games.last.rounds.empty? 
