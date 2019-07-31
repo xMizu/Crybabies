@@ -1,22 +1,18 @@
 <div>
     <% if flash[:message] %>
-        <% if flash[:message].count > 1 %>
-            <% flash[:message].each do |m| %>
-                <div class="alert alert-danger" role="alert">    
-                        <%= m %>
-                </div>    
-            <% end %>
-        <% else %>
-            <%= flash[:message] %>
-        <% end %>
-    <% end %>   
+    <% if flash[:message].count > 1 %>
+    <% flash[:message].each do |m| %>
+    <div class="alert alert-danger" role="alert">
+        <%= m %>
+    </div>
+    <% end %>
+    <% else %>
+    <%= flash[:message] %>
+    <% end %>
+    <% end %>
 </div>
-
-
-
-
 <div class="container">
-    <%= form_for @user do |f| %>
+    <div class="form-box sign-up"><%= form_for @user do |f| %>
         <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>
@@ -31,11 +27,9 @@
         </div>
         <div class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
-                <%= submit_tag "Signup", class: 'btn btn-outline-info btn-lg btn-submit' %>      
-            </div>    
-        <%end%>
-            <div class="form-group mx-sm-3 mb-2">    
-                <%= button_to 'login', login_path , class: 'btn btn-outline-info btn-lg btn-submit', method: :get %>
-            </div>    
+                <%= submit_tag "Signup", class: 'btn btn-info btn-lg btn-submit' %>
+            </div>
+            <%end%>
+        </div>
     </div>
 </div>

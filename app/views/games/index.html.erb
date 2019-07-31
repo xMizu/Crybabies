@@ -1,6 +1,5 @@
-
 <% @games.each do |g| %>
 <div>
-    <%= button_to "Join Game ##{g.id}", g, method: :patch, class: "btn btn-light btn-lg btn-block" %>
+    <%= button_to "Join Game ##{g.id}", g, method: :patch, class: "btn btn-light btn-lg btn-block open-games" %>
 </div>
 <% end %>

@@ -1,27 +1,29 @@
-<div class="d-flex justify-content-center">
-    <h1 class="text-xl-center"> <%=@round.topic.name%></h1>
-</div>
-<div class="d-flex justify-content-center">
-    <p><%=@user.name%></p>
+<div class="section-title">
+    <div class="d-flex justify-content-center">
+        <h1 class="text-xl-center">Topic: <%=@round.topic.name%></h1>
+    </div>
 </div>
 
+
 <% if @complaint.id == nil %>
+<div class="form-box">
     <div class="form-group">
         <%=form_for @complaint do |f| %>
-        <%=f.label :complain_text, "Complaint", class: "d-flex justify-content-center h1" %>
+        <%=f.label :complain_text, "Have yourself a little cry...", class: "d-flex justify-content-center h2" %>
         <%=f.text_field :complain_text, class: 'form-control' %>
         <%=f.submit :submit, class: "btn btn-dark" %>
         <% end %>
     </div>
+</div>
 <% else %>
-    <div>
-        <h1>
-            <%=@complaint.complain_text%>
-        </h1>
-        <% if @round.complaint_phase? %>
-            <%=button_to "refresh", @round, method: :get %>
-        <% else %>
-            <%= button_to "Look at Guesses", round_guesses_path(@round.id), method: :get %>
-        <% end %>
-    </div>
+<div>
+    <h1>
+        <%=@complaint.complain_text%>
+    </h1>
+    <% if @round.complaint_phase? %>
+    <%=button_to "refresh", @round, method: :get %>
+    <% else %>
+    <%= button_to "Look at Guesses", round_guesses_path(@round.id), method: :get %>
+    <% end %>
+</div>
 <% end %>

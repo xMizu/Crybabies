@@ -24,14 +24,20 @@ class RoundsController < ApplicationController
         end
     end
 
-    def guess 
-       @round = Round.find(params[:id])
-       @user = User.find(session[:user_id]) 
-       game = @round.game 
-       #TODO fix this horseshit
-
-       @complaints =  @round.complaints.where.not(user_id: session[:user_id])
-       @opponents = game.users.where.not(id: session[:user_id])
+    def guess
+        @user = User.find(session[:user_id]) 
+    begin
+        @user.guesses_submitted?
+        @round = Round.find(params[:id])
+        game = @round.game 
+        #TODO fix this horseshit
+ 
+        @complaints =  @round.complaints.where.not(user_id: session[:user_id])
+        @opponents = game.users.where.not(id: session[:user_id])
+    rescue 
+        
+        redirect_to user_path(@user.id)
+    end 
     
     end
 
