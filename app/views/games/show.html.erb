@@ -1,6 +1,8 @@
-<h1 class="text-xl-center" >Game ID: <%=@game.id%></h1>
+<div class="section-title">
+    <h1 class="text-xl-center">Game ID: <%=@game.id%></h1>
 
-<h2 class="text-lg-center"> Player Counter: <%=@game_session.count%>/<%=@game.user_count%></h2>
+    <h2 class="text-lg-center"> Player Counter: <%=@game_session.count%>/<%=@game.user_count%></h2>
+</div>
 
 <% if @game.started? %>
 <%= button_to "Start Game", rounds_path , method: :post, game_id: @game.id , params: { game_id: @game.id },class: "btn btn-dark btn-lg btn-block" %>
