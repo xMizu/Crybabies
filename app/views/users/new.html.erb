@@ -1,3 +1,19 @@
+<div>
+    <% if flash[:message] %>
+        <% if flash[:message].count > 1 %>
+            <% flash[:message].each do |m| %>
+                <div class="alert alert-danger" role="alert">    
+                        <%= m %>
+                </div>    
+            <% end %>
+        <% else %>
+            <%= flash[:message] %>
+        <% end %>
+    <% end %>   
+</div>
+
+
+
 
 <div class="container">
     <%= form_for @user do |f| %>

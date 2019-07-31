@@ -4,6 +4,9 @@ class User < ApplicationRecord
     has_many :games, through: :game_sessions
     has_many :guesses
     has_many :complaints
+    validates :name, presence: true
+    validates :email, uniqueness: true
+    validates :email, presence: true
     has_secure_password
 
     def current_session?

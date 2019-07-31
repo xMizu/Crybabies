@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         @user = User.new 
     end
     def show
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
         
         if @user.current_session?
             @path = @user.current_round?
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     def delete
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
         @user.delete 
         redirect_to root_path 
     end
@@ -23,6 +23,8 @@ class UsersController < ApplicationController
             @user.save 
             redirect_to login_path
         else 
+            flash[:message] = @user.errors.full_messages
+            redirect_to signup_path
             #TODO need to handle invalid user
         end
     end
