@@ -9,7 +9,14 @@
     <h3><%= "Complaints for: #{@round.topic.name}" %></h3>
     <%= form_tag send_guesses_path(params[:id]) do %>
     <% @complaints.each_with_index do |c,i| %>
-    <p><%= c.complain_text %><%= collection_select "guess#{i}",:user_id,@opponents,:id,:name %></p>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <%= c.complain_text %>
+            </div>
+            <div class="form-group col-md-6">
+                <%= collection_select "guess#{i}",:user_id,@opponents,:id,:name %></p>
+            </div>
+        </div>
     <% end %>
     <%= submit_tag "Good Luck!" %>
     <% end %>
