@@ -1,0 +1,13 @@
+<h1 class="d-flex justify-content-center">
+    <%=@topic.name%>
+</h1>
+
+<div class="d-flex justify-content-center">
+    <div class="flex-column">
+    <% @complaints.each do |c| %>
+            <div class="h3">
+                <%= c.complain_text %>
+            </div>
+        <% end %>
+    </div>
+</div>
