@@ -30,8 +30,6 @@ class RoundsController < ApplicationController
         @user.guesses_submitted?
         @round = Round.find(params[:id])
         game = @round.game 
-        #TODO fix this horseshit
- 
         @complaints =  @round.complaints.where.not(user_id: session[:user_id])
         @opponents = game.users.where.not(id: session[:user_id])
     rescue 
@@ -58,6 +56,7 @@ class RoundsController < ApplicationController
         player = User.find(session[:user_id])
         round = Round.find(params[:id])
         complaints = Complaint.all.select {|c| c.round_id == params[:id].to_i && c.user_id != session[:user_id].to_i}
+        #complaints =  @round.complaints.where.not(user_id: session[:user_id])
         complaints.each_with_index do |c,i|
            g = c.guess(player,params["guess#{i}"][:user_id])
            g.apply_score

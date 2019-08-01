@@ -7,7 +7,6 @@ class GamesController < ApplicationController
         @game = Game.new 
     end
     def create
-        #TODO figure out how to make a game session for the current user. 
         @game = Game.new(game_params)
         if @game.valid?
             @game.save
@@ -22,6 +21,7 @@ class GamesController < ApplicationController
 
     def index
         @games = Game.all.select {|g| g.started? == false }
+        # @games = Game.all
     end
 
 
