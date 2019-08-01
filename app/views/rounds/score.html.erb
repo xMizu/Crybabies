@@ -29,7 +29,7 @@
             </tr>
         </thead>
         <tbody>
-            <% @round.users.each do |u| %>
+            <% @sorted_user.each do |u| %>
             <tr>
                 <th scope="row"> <%= u.name.capitalize %> </th>
                     <% @game.rounds.each do |r| %>

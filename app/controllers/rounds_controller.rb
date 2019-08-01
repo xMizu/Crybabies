@@ -43,6 +43,7 @@ class RoundsController < ApplicationController
         @round = Round.find(params[:id])
         @user = User.find(session[:user_id])
         @game = @user.games.last
+        @sorted_user = @round.users.sort_by{|u| u.total_score}.reverse
         if !@round.finished?
             redirect_to round_guesses_path(@round.id)
         else
