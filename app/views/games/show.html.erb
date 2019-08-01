@@ -5,5 +5,9 @@
 </div>
 
 <% if @game.started? %>
-<%= button_to "Start Game", rounds_path , method: :post, game_id: @game.id , params: { game_id: @game.id },class: "btn btn-dark btn-lg btn-block" %>
+    <%= button_to "Start Game", rounds_path , method: :post, game_id: @game.id , params: { game_id: @game.id },class: "btn btn-dark btn-lg btn-block" %>
+<% else %>
+    <div class="d-flex justify-content-center">
+        <%= button_to "Go Back", user_path(session[:user_id]), method: :get, class: "btn btn-dark btn-lg" %>
+    </div>
 <% end %>
