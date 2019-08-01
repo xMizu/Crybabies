@@ -17,13 +17,20 @@
 </div>
 <% else %>
 <div>
-    <h1>
-        <%=@complaint.complain_text%>
-    </h1>
     <% if @round.complaint_phase? %>
-    <%=button_to "refresh", @round, method: :get %>
+    <div class="form-box">
+        <h1>
+            Your Complaint: <%=@complaint.complain_text%>
+        </h1>
+        <%=button_to "refresh", @round, method: :get %>
+    </div>
     <% else %>
-    <%= button_to "Look at Guesses", round_guesses_path(@round.id), method: :get %>
+    <div class="form-box">
+        <h1>
+            Your Complaint: <%=@complaint.complain_text%>
+        </h1>
+        <%= button_to "Guess Phase", round_guesses_path(@round.id), method: :get %>
+    </div>
     <% end %>
 </div>
 <% end %>
