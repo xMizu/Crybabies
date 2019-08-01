@@ -24,10 +24,10 @@
             <%=User.find(session[:user_id]).name.capitalize%>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="/cry_store">Cry Store</a>
+            <a class="dropdown-item" href=<%="/users/#{session[:user_id]}"%>>Home Page</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="/">Logout</a>
           </div>
         </li>
       </ul>

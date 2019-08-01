@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :games, only: [:show,:create,:new,:index,:update]
   
 
-
-  resources :topics , only: [:index,:show]
+  get '/cry_store', to: 'topics#index', as: 'cry_store'
+  resources :topics , only: [:show]
   resources :guesses , only: [:new,:create]
   resources :complaints , only: [:new,:create,:index]
   get "/rounds/:id/guess", to: "rounds#guess", as: "round_guesses"

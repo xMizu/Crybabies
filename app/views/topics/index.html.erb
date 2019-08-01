@@ -1,2 +1,10 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+<h1>
+    All of these Complaints
+</h1>
+    
+
+<div class="list-group">
+    <% @topics.each do |t| %>
+    <a href=<%="/topics/#{t.id}"%> class="list-group-item list-group-item-action"><%=t.name%></a>
+    <% end %>
+</div>
