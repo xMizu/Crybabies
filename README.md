@@ -1,24 +1,18 @@
-# README
+# Crybaby
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A minigame created with the intent to complain. 
 
-Things you may want to cover:
+# Motivation
 
-* Ruby version
+We wanted to create a multiplayer game in a group setting that would be a) fun b) build relationship between players. The one thing that seemed to connect one another was the share amount of things one can complain about. 
 
-* System dependencies
+# Getting Started
 
-* Configuration
+clone the repo, and `bundle install` the dependencies, after you can run the applicaiton which would show you the login screen.
 
-* Database creation
+# Authors 
 
-* Database initialization
+Colin Tatro - https://github.com/cstatro
+Anthony Wan - https://github.com/xmizu
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
