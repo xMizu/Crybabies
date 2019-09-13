@@ -1,4 +1,4 @@
-# Crybaby
+# Crybabies
 
 A minigame created with the intent to complain. 
 
@@ -10,9 +10,12 @@ We wanted to create a multiplayer game in a group setting that would be a) fun b
 
 clone the repo, and `bundle install` the dependencies, after you can run the applicaiton which would show you the login screen.
 
+# Deployment
+
+https://crybabies.herokuapp.com/
+
 # Authors 
 
 Colin Tatro - https://github.com/cstatro
 Anthony Wan - https://github.com/xmizu
-
 
